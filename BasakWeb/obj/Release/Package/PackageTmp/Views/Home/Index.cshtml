@@ -1,0 +1,636 @@
+﻿@model BasakWeb.Models.GirisPageVM
+@{
+    ViewBag.Title = "Home Page";
+    int kolon = 0;
+}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--=================== The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags ===================-->
+   
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/png">
+    <!--=================== Bootstrap core CSS ===================-->
+
+</head>
+<body>
+    <!--=================== Main Body Content Container ===================-->
+    <div class="paira-container">
+        <!--=================== Header Container ===================-->
+        <header>
+            <!--=================== Header Top Section ===================-->
+            <section class="header-top">
+                <div class="container-fluid padding-fix">
+                </div>
+            </section>
+            <!--=================== Main Slider Section ===================-->
+            <section class="header-middle paira-margin-bottom-2">
+                <div class="main-slider paira-animation-container">
+                    <div id="Carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img alt="First slide" src="~/assets/images/slider/slider-1.jpeg">
+                                <div class="container">
+                                    <div class="carousel-caption carousel-caption1">
+                                        <h1 class="text-capitalize margin-bottom-20 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">Başak Gülcan Kübik</h1>
+                                        <h1 class="text-capitalize margin-bottom-20 margin-top-0 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.5s">Resimler Satışta!</h1>
+                                        <a href='@Url.Action("Index", "Product")' class="btn btn-primary btn-lg paira-animation" data-paira-animation="fadeInUp" data-paira-animation-delay="0.8s">Alışveriş Yap!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img alt="Second slide" src="~/assets/images/slider/slider-2.jpeg">
+                                <div class="container">
+                                    <div class="carousel-caption carousel-caption3">
+                                        <h1 class="text-capitalize margin-bottom-20 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">Başak Gülcan Kübik</h1>
+                                        <h1 class="text-capitalize margin-bottom-20 margin-top-0 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.5s">Resimler Satışta!</h1>
+                                        <a href='@Url.Action("Index", "Product")' class="btn btn-primary btn-lg paira-animation" data-paira-animation="fadeInUp" data-paira-animation-delay="0.8s">Alışveriş Yap!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img alt="Third slide" src="~/assets/images/slider/slider-3.jpeg">
+                                <div class="container">
+                                    <div class="carousel-caption carousel-caption2">
+                                        <h1 class="text-capitalize margin-bottom-20 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">Başak Gülcan Kübik</h1>
+                                        <h1 class="text-capitalize margin-bottom-20 margin-top-0 paira-animation" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.5s">Resimler Satışta!</h1>
+                                        <a href='@Url.Action("Index", "Product")' class="btn btn-primary btn-lg paira-animation" data-paira-animation="fadeInUp" data-paira-animation-delay="0.8s">Alışveriş Yap!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="left carousel-control paira-animation" href="#Carousel" data-slide="prev" data-paira-animation="fadeIn" data-paira-animation-delay="0.0ms"><span>GE<br>Rİ</span></a>
+                        <a class="right carousel-control paira-animation" href="#Carousel" data-slide="next" data-paira-animation="fadeIn" data-paira-animation-delay="0.10ms"><span>İLE<br>Rİ</span></a>
+                        <ol class="carousel-indicators">
+                            <li data-target="#Carousel" data-slide-to="0" class="active">01</li>
+                            <li data-target="#Carousel" data-slide-to="1">02</li>
+                            <li data-target="#Carousel" data-slide-to="2">03</li>
+                        </ol>
+                        <span class="carousel-indicators-total"></span>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <!--=================== Main Content Container ===================-->
+        <main class="home-page">
+            <!--=================== Small Banner Section ===================-->
+            <section class="banner-small paira-margin-bottom-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12 col-sm-4">
+                            <div class="banner-small-back">
+                                <img src="~/assets/images/icon.png" alt="" class="img-responsive pull-left">
+                                <h4 class="margin-clear text-capitalize margin-bottom-5"><a>Ücretsiz Kargo</a></h4>
+                                <p class="margin-bottom-0 margin-top-5">Kargoyu ücretsiz karşılıyoruz</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12 col-sm-4">
+                            <div class="banner-small-back">
+                                <img src="~/assets/images/icon-2.png" alt="" class="img-responsive pull-left">
+                                <h4 class="margin-clear text-capitalize margin-bottom-5"><a>Ücretsiz Çerçeve</a></h4>
+                                <p class="margin-bottom-0 margin-top-5">Resim çerçeveleri bizden</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12 col-sm-4">
+                            <div class="banner-small-back last">
+                                <img src="~/assets/images/icon-3.png" alt="" class="img-responsive pull-left">
+                                <h4 class="margin-clear text-capitalize margin-bottom-5"><a>Para İade Garantisi</a></h4>
+                                <p class="margin-bottom-0 margin-top-5">iade süreniz 30 gündür</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--=================== latest Collection Section ===================-->
+            <section class="latest-collection paira-margin-bottom-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 heading-title">
+                            <h2 class="text-capitalize margin-clear"><span>Son Koleksiyonlarım</span></h2>
+                        </div>
+                        <div class="product-widget text-center">
+
+                            @for (int i = 0; i < Model.Collections.Count;)
+                            {
+                                if (Model.Collections[i].Products != null)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-6 margin-bottom-5">
+                                            <div class="product text-center">
+                                                <div class="product-image position-r">
+                                                    <a href="#">
+                                                        <div class="background-overlay"></div>
+                                                        <img src="@Model.Collections[i].Picture" alt="" class="img-responsive">
+                                                    </a>
+                                                </div>
+                                                <div class="product-hover">
+                                                    <h2 class="margin-clear">@Model.Collections[i].Products.Count parça</h2>
+                                                    <a href='@Url.Action("Collection", "Home", new { id = Model.Collections[i].ID})' class="margin-top-10">- Koleksiyon alışveriş yap -</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @if (i + 1 < Model.Collections.Count)
+                                        {
+                                            <div class="col-md-6 margin-bottom-5">
+                                                <div class="product text-center">
+                                                    <div class="product-image position-r">
+                                                        <a href="#">
+                                                            <div class="background-overlay"></div>
+                                                            <img src="@Model.Collections[i+1].Picture" alt="" class="img-responsive">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-hover">
+                                                        <h2 class="margin-clear">@Model.Collections[i + 1].Products.Count parça</h2>
+                                                        <a href='@Url.Action("Collection", "Home", new { id = Model.Collections[i+1].ID})' class="margin-top-10">- Koleksiyon alışveriş yap -</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+
+                                }
+                                i += 2;
+                            }
+
+
+
+                            <a href='@Url.Action("Collection", "Home")' class="btn-primary btn btn-lg margin-top-30">Daha fazla gör</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--=================== latest Picture Section ===================-->
+            <section class="latest-picture paira-margin-bottom-2">
+                <div class="picture-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 heading-title">
+                                <h2 class="text-capitalize margin-clear pull-left"><span>Son Resimlerim</span></h2>
+                                <a href='@Url.Action("Collection", "Home")' class="text-uppercase pull-right margin-top-10">Hepsini Gör</a>
+                            </div>
+                            @foreach (var item in Model.LatestProducts)
+                            {
+
+
+                                <div class="col-sm-4 col-md-4 col-xs-12 margin-top-30">
+                                    <div class="product text-center">
+                                        <div class="product-image position-r">
+                                            <a href="#">
+                                                <div class="background-overlay"></div>
+                                                <img src="@item.Picture" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        @{
+                                            if (item.Sold)
+                                            {
+                                                <div class="product-stock-out"><span>Satıldı</span></div>
+                                            }
+
+                                        }
+                                        <div class="product-hover">
+                                            <h4 class="margin-clear"><a href='@Url.Action("Collection", "Home")'>@item.ProductName</a></h4>
+                                            <div class="text-center prices">
+                                                @{ if (item.UnitPriceOld != 0)
+                                                    {
+                                                        <h3 class="pull-left margin-right-5 del"><del><span class="money-old">@item.UnitPriceOld</span></del></h3>
+                                                    }}
+                                                <h3 class="pull-left margin-left-5"><span class="money">@item.UnitPrice TL</span></h3>
+                                            </div>
+                                            <div class="paira-wish-compare-con wish-compare-view-cart">
+                                                @if (item.Sold == false)
+                                                {
+                                                    <a href="#paira-quick-view" data-picture="@item.Picture" data-unitprice="@item.UnitPrice" data-unitoldprice="@item.UnitPriceOld" data-productname="@item.ProductName" data-productid="@item.ProductId" class="paira-quick-view quick-view  btn btn-default"><i class="fa fa-search-plus"></i></a>
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="product-container"></div>
+                </div>
+            </section>
+            <!--=================== latest Collection Section ===================-->
+            <!--=================== Gallery Section ===================-->
+            <section class="gallery paira-margin-bottom-2">
+                <div class="gallery-background margin-top-30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 heading-title">
+                                <h2 class="text-capitalize margin-clear"><span>Instragram Galerim</span></h2>
+                            </div>
+                            <div class="col-md-3 col-xs-6 col-sm-6 margin-top-30">
+                                <div class="instragram-desc text-left">
+                                    <h4 class="margin-top-0 margin-bottom-10">Başak Gülcan</h4>
+                                    <p class="margin-bottom-15">Son resimlerimi görmek için lütfen beni Instagram'dan takip edin.</p>
+
+                                    <button onclick="TakipEt()" class="btn btn-primary btn-lg"><i class="fa fa-instagram margin-right-5"></i>Takip Et</button>
+                                </div>
+                            </div>
+                            <div id="instadiv">
+
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--=================== Banner Section ===================-->
+            <section class="banner paira-margin-bottom-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="product-widget text-center">
+                            <div class="col-sm-8 col-md-6 col-xs-12 overs padding-right-0">
+                                <div class="bannersd text-center">
+                                    <div class="banner-img position-r">
+                                        <a href="#">
+                                            <div class="background-overlay"></div>
+                                            <img src="~/assets/images/product/product-16.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-6 col-xs-12 padding-left-0 banner-blank">
+                                <div class="banner-desc text-center">
+                                    <h3 class="margin-clear">Kübik Resimler</h3>
+                                    <p class="margin-top-10 margin-bottom-20">"Kübizm zannedildiği gibi her şeyi küp küp resmetmek değildir" - Guillaume Apollinaire</p>
+                                    <a href='@Url.Action("Collection", "Home")' class="btn btn-success btn-lg">Alışveriş Yap</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 col-md-6 col-xs-12 padding-right-0 banner-blank">
+                                <div class="banner-desc text-center">
+                                    <h3 class="margin-clear">Kübizm (Cubisme)</h3>
+                                    <p class="margin-top-10 margin-bottom-20">1907 den 1914 e süren Kübizmin kuruluş devresinde bu akımın önderleri Pablo Picasso, Georges Braque, Juan Gris ve Fernand Leger idi. Kübizm de başlangıçta, Empresyonizm gibi alaya alınmış, anlaşılmamıştı.</p>
+                                    <a href='@Url.Action("Collection", "Home")' class="btn btn-success btn-lg">Alışveriş Yap</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-6 col-xs-12 overs padding-left-0">
+                                <div class="bannersd text-center">
+                                    <div class="banner-img position-r">
+                                        <a href="#">
+                                            <div class="background-overlay"></div>
+                                            <img src="~/assets/images/product/product-10.jpg" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--=================== Footer Container ===================-->
+    </div>
+    <!--=================== Welcome Newsletter Dialog ===================-->
+    <div class="modal fade welcome-newsletter-content" id="paira-welcome-newsletter" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content text-center">
+                <div class="modal-body">
+                    <div class="close-button">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    </div>
+                    <div class="welcome-newsletter text-center">
+                        <h2 class="rale-light margin-bottom-0">Newsletter</h2>
+                        <p class="margin-top-0 margin-bottom-20">Quo studio Aristophanem putamus aetatem in litteris duxisse einde<br>animantium statui deceat extremum.</p>
+                        <form action="#" method="post" target="_blank" class="margin-bottom-15">
+                            <input type="email" value="" name="EMAIL" placeholder="Email Address" required="">
+                        </form>
+                        <button type="submit" value="Subscribe" name="subscribe" class="text-capitalize btn btn-success btn-lg">Subscribe Now</button>
+                        <ul class="list-inline social-li">
+                            <li><a ><i class="fa fa-facebook text-color-1"></i></a></li>
+                            <li><a ><i class="fa fa-twitter text-color-1"></i></a></li>
+                            <li><a><i class="fa fa-google-plus text-color-1"></i></a></li>
+                            <li><a ><i class="fa fa-linkedin text-color-1"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Loading Image ===================-->
+    <div class="paira-loading ajax-loading margin-clear text-center">
+        <img src="~/assets/images/AjaxLoader.gif" alt="" class="padding-clear margin-top-10">
+        <p><b>Loading...</b></p>
+    </div>
+    <!--=================== Quick View Dialog ===================-->
+    <div class="modal fade quick-view" id="paira-quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-5 col-sm-12 col-xs-12 margin-top-40 paira-margin-top-2">
+                            <div class="paira-product single-varients-product">
+                                <div class="position-r pull-left full-width margin-bottom-40">
+                                    <div class="single-product-image paira-quick-single-product-image">
+                                        <img alt="" class="paira-product-image img-responsive">
+                                    </div>
+                                    <div class="single-product-container"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        @Html.Hidden("prid")
+                        <div class="col-md-7 col-sm-12 col-xs-12 margin-top-40 paira-margin-top-2">
+                            <div class="product-detles">
+                                <h1 class="full-width text-capitalize margin-bottom-15 margin-clear"><a href='@Url.Action("Index", "Product")' class="productname"></a></h1>
+                                <div class="full-width pull-left margin-bottom-15">
+                                    <h3 class="margin-right-5 pull-left margin-top-0 margin-bottom-0 del"><del class="margin-clear"><span class="money-old margin-clear">$200.00</span></del></h3>
+                                    <h3 class="margin-left-5 pull-left margin-top-0 margin-bottom-0 money">$80.00</h3>
+                                </div>
+
+                                <button class="btn btn-success btn-lg text-capitalize margin-bottom-20 cartbtn" data-toggle="modal" data-target="#paira-ajax-success-message">Sepete Ekle</button>
+                            </div>
+                            @*<div class="sicoal-share-widget margin-top-10  full-width pull-left">
+            <label class=" pull-left">Share :</label>
+            <ul class="social-li list-inline">
+                <li><a ><i class="fa fa-facebook font-size-18"></i></a></li>
+                <li><a ><i class="fa fa-google-plus font-size-18"></i></a></li>
+                <li><a ><i class="fa fa-twitter font-size-18"></i></a></li>
+                <li><a ><i class="fa fa-pinterest font-size-18"></i></a></li>
+                <li><a><i class="fa fa-linkedin font-size-18"></i></a></li>
+            </ul>*@
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Ajax Success Message ===================-->
+    <div class="modal fade ajax-success-message" id="paira-ajax-success-message" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row paira-margin-top-2">
+                        <div class="col-md-4 pull-right padding-left-0 col-xs-12 col-sm-4 paira-success-message-img"><img src="~/assets/images/product/product-10.jpeg" alt="" class="img-responsive"></div>
+                        <div class="col-md-8 col-xs-12 col-sm-8 pull-left">
+                            <h4 class="margin-top-0 paira-success-message-title"><strong class="paira-success-message-details letter-spacing-2"><i class="fa fa-check-circle"></i> Sepetinize Eklendi.</strong></h4>
+                            <a href="@Url.Action("Collection", "Home")" class="btn btn-success btn-lg btn-block margin-top-30">Alışverişe devam et</a>
+                            <a href="@Url.Action("List", "Cart")" class="btn btn-default btn-lg btn-block margin-top-15 paira-success-message-link">Sepete git</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Ajax Cart Dialog ===================-->
+    <div class="modal fade paira-cart-popup" id="paira-ajax-cart" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row margin-top-40">
+                        <div class="col-md-7 col-sm-7 col-xs-12 cart-table margin-top-40">
+                            <h3 class="margin-top-0">Shopping Cart</h3>
+                            <div class="cart-table-inner">
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-10.jpg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-9.jpg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="cart-menu-buttons text-right">
+                                <a href="#" class="btn btn-success pull-left">Continue Shopping</a>
+                                <a href="#" class="btn btn-success pull-right">Update Cart</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 cart-table margin-top-40">
+                            <div class="margin-bottom-30">
+                                <h3 class="margin-clear margin-bottom-15">Sub Total</h3>
+                                <div class="cart-sub-total">
+                                    <textarea id="note" name="note" class=" margin-bottom-15 form-control" placeholder="Special instruction for seller"></textarea>
+                                    <h1 class="margin-bottom-15 text-center"><span class="money">$510.00</span></h1>
+                                    <input type="submit" id="checkout" class="btn btn-success btn-lg btn-block" name="checkout" value="Proceed To Checkout">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Login Dialog ===================-->
+    <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 paira-margin-top-3">
+                            <div class="currency">
+                                <h3 class="text-capitalize margin-bottom-30">currency</h3>
+                                <ul class="list-inline text-uppercase full-width">
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>USD</span></a></li>
+                                    <li><a href="#"><span>AUD</span></a></li>
+                                    <li><a href="#"><span>GBP</span></a></li>
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>YUN</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-9 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Login</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon1">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon2">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href="reset-password.html" class="forget pull-left margin-top-10 text-underline">Reset Password?</a>
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Login</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Register</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon3">First Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon4">Last Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon5">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon6">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
+@section scripts {
+    <script>
+        var token = '9847060520.8f693a2.2d753e6149504aac93aa4b7a3822298f',
+            num_photos = 3;
+        $( document ).ready(function() {
+     $.ajax({
+	url: 'https://api.instagram.com/v1/users/self/media/recent',
+	dataType: 'jsonp',
+	type: 'GET',
+	data: {access_token: token, count: num_photos},
+	success: function(data){
+ 		console.log(data);
+		for( x in data.data ){
+			$('#instadiv').append( '   <div class="col-md-3 col-xs-6 col-sm-6 margin-top-30">  '  + 
+ '                                   <div class="instragrame">  '  + 
+ '                                       <div class="instragram-image position-r">  '  + 
+ '                                           <a>  '  + 
+ '                                               <div class="background-overlay"></div>  '  + 
+ '                                               <img src="'+data.data[x].images.low_resolution.url+'" alt="" class="img-responsive">  '  + 
+ '                                           </a>  '  + 
+ '                                       </div>  '  + 
+  '                                   </div>  '  + 
+ '                              </div>  ' );
+		}
+	},
+	error: function(data){
+		console.log(data);
+	}
+});
+});
+    function TakipEt() {
+        
+
+window.open(
+  'https://www.instagram.com/quubik/',
+  '_blank' // <- This is what makes it open in a new window.
+);
+
+
+    }
+    $('.cartbtn').click(function () {
+            var prid = $("#prid").val();
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: "POST",
+                data: { productid: prid },
+                success: function (data) {
+                    if (data.success==true) {
+                         $("#paira-ajax-success-message").modal("show");
+                    }
+                }
+            });
+        });
+    $(document).on("click", ".paira-quick-view", function () {
+        $('#paira-ajax-success-message').on('hidden.bs.modal', function (e) {
+  window.location = "/Home/Collection/"
+})
+        var picture = $(this).data('picture');
+        $("#prid").val($(this).data('productid'));
+        var price = $(this).data('unitprice');
+        var priceold = $(this).data('unitoldprice');
+        var prname = $(this).data('productname');
+        $(".paira-product-image").attr("src", picture);
+        $(".money").text(price+"TL");
+       priceold != "0.00"? $(".money-old").text(priceold):$(".money-old").text("");
+        $(".productname").text(prname);
+        // As pointed out in comments,
+        // it is unnecessary to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+      
+    });
+
+    </script>
+
+}

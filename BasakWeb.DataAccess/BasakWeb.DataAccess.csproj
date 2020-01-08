@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{416C1D4E-BB2D-4EE3-BE1E-6E9BEADAE5B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BasakWeb.DataAccess</RootNamespace>
+    <AssemblyName>BasakWeb.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\ICategoryDAL.cs" />
+    <Compile Include="Abstract\ICollectionDAL.cs" />
+    <Compile Include="Abstract\IOrderDAL.cs" />
+    <Compile Include="Abstract\IProductDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCategoryDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\EFCollectionDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\EFOrderDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\EfProductDAL.cs" />
+    <Compile Include="Concrete\EntityFramework\BasakWebContext.cs" />
+    <Compile Include="Migrations\201904031939065_Initial.cs" />
+    <Compile Include="Migrations\201904031939065_Initial.Designer.cs">
+      <DependentUpon>201904031939065_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904031941522_Initial1.cs" />
+    <Compile Include="Migrations\201904031941522_Initial1.Designer.cs">
+      <DependentUpon>201904031941522_Initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904041936459_Initial2.cs" />
+    <Compile Include="Migrations\201904041936459_Initial2.Designer.cs">
+      <DependentUpon>201904041936459_Initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904211423305_UnitsinStock.cs" />
+    <Compile Include="Migrations\201904211423305_UnitsinStock.Designer.cs">
+      <DependentUpon>201904211423305_UnitsinStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904211527099_UnitsinStocktt.cs" />
+    <Compile Include="Migrations\201904211527099_UnitsinStocktt.Designer.cs">
+      <DependentUpon>201904211527099_UnitsinStocktt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221946544_initiales2.cs" />
+    <Compile Include="Migrations\201904221946544_initiales2.Designer.cs">
+      <DependentUpon>201904221946544_initiales2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904281331447_initiale334.cs" />
+    <Compile Include="Migrations\201904281331447_initiale334.Designer.cs">
+      <DependentUpon>201904281331447_initiale334.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904282010045_initiale3341.cs" />
+    <Compile Include="Migrations\201904282010045_initiale3341.Designer.cs">
+      <DependentUpon>201904282010045_initiale3341.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904291954348_Initiale33413.cs" />
+    <Compile Include="Migrations\201904291954348_Initiale33413.Designer.cs">
+      <DependentUpon>201904291954348_Initiale33413.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904301919228_initialsz.cs" />
+    <Compile Include="Migrations\201904301919228_initialsz.Designer.cs">
+      <DependentUpon>201904301919228_initialsz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904302040118_initialsz1.cs" />
+    <Compile Include="Migrations\201904302040118_initialsz1.Designer.cs">
+      <DependentUpon>201904302040118_initialsz1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905011957195_initialesz1.cs" />
+    <Compile Include="Migrations\201905011957195_initialesz1.Designer.cs">
+      <DependentUpon>201905011957195_initialesz1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905122020270_initialesz11.cs" />
+    <Compile Include="Migrations\201905122020270_initialesz11.Designer.cs">
+      <DependentUpon>201905122020270_initialesz11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905291948413_initialesz111.cs" />
+    <Compile Include="Migrations\201905291948413_initialesz111.Designer.cs">
+      <DependentUpon>201905291948413_initialesz111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906041030031_initialesz1111.cs" />
+    <Compile Include="Migrations\201906041030031_initialesz1111.Designer.cs">
+      <DependentUpon>201906041030031_initialesz1111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasakWeb.Core\BasakWeb.Core.csproj">
+      <Project>{CE05FF61-3390-45BF-961F-1CE154A576CD}</Project>
+      <Name>BasakWeb.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasakWeb.Entities\BasakWeb.Entities.csproj">
+      <Project>{FFFD2C9B-7070-4D07-BC4C-555569C899B7}</Project>
+      <Name>BasakWeb.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904031939065_Initial.resx">
+      <DependentUpon>201904031939065_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904031941522_Initial1.resx">
+      <DependentUpon>201904031941522_Initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904041936459_Initial2.resx">
+      <DependentUpon>201904041936459_Initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904211423305_UnitsinStock.resx">
+      <DependentUpon>201904211423305_UnitsinStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904211527099_UnitsinStocktt.resx">
+      <DependentUpon>201904211527099_UnitsinStocktt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221946544_initiales2.resx">
+      <DependentUpon>201904221946544_initiales2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904281331447_initiale334.resx">
+      <DependentUpon>201904281331447_initiale334.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904282010045_initiale3341.resx">
+      <DependentUpon>201904282010045_initiale3341.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904291954348_Initiale33413.resx">
+      <DependentUpon>201904291954348_Initiale33413.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904301919228_initialsz.resx">
+      <DependentUpon>201904301919228_initialsz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904302040118_initialsz1.resx">
+      <DependentUpon>201904302040118_initialsz1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905011957195_initialesz1.resx">
+      <DependentUpon>201905011957195_initialesz1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905122020270_initialesz11.resx">
+      <DependentUpon>201905122020270_initialesz11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905291948413_initialesz111.resx">
+      <DependentUpon>201905291948413_initialesz111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906041030031_initialesz1111.resx">
+      <DependentUpon>201906041030031_initialesz1111.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

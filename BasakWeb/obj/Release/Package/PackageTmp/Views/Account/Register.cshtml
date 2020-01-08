@@ -1,0 +1,293 @@
+﻿@model BasakWeb.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+<html>
+<body>
+    <!--=================== Main Body Content Container ===================-->
+    <div class="paira-container pages-container">
+        <!--=================== Header Container ===================-->
+        <header>
+            <!--=================== Header Top Section ===================-->
+            <section class="header-top">
+                <div class="container-fluid padding-fix">
+                    <div class="row">
+                        <div class="pull-left logo col-md-3 col-sm-3 col-xs-4">
+                            <a href="index.html"><img src="~/assets/images/logo.png" alt="" class="pull-left"></a>
+                        </div>
+                        <div class="text-center col-md-6 col-sm-6 col-xs-4">
+                            <a href="#" class="menu-pops"><img src="~/assets/images/menu-plus.png" alt="" class="margin-right-10 img-hover"><img src="~/assets/images/menu-plus-hover.png" alt="" class="margin-right-10 img-hovers"><span class="text-uppercase">MENU</span></a>
+                        </div>
+                        <div class="pull-right col-md-3 col-sm-3 col-xs-4">
+                            <div class="account-ajax-cart pull-right">
+                                <ul class="list-inline pull-right">
+                                    <li>
+                                        <a href="#" class="search-popup"><img src="~/assets/images/search.png" alt="" class=""></a>
+                                    </li>
+                                    <li><a href="#" class="login-popup"><img src="~/assets/images/corg.png" alt="" class=""></a></li>
+                                    <li class="dropdown cart-menu-body">
+                                        <a href="#"><img src="~/assets/images/shopping-bag.png" alt="" class="position-r"><span class="span">2</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        <!--=================== Main Content Container ===================-->
+        <main class="register-page">
+            <!--=================== Breadcrumb Section ===================-->
+            <section class="breadcrumb-container paira-margin-bottom-3">
+                <div class="breadcrumb">
+                    <div class="container-fluid padding-fix">
+                        <ul class="list-inline">
+                            <li><a href="#">Anasayfa</a></li>
+                            <li>-</li>
+                            <li>Register</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--=================== latest Collection Section ===================-->
+            <section class="register-content paira-margin-bottom-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 heading-title">
+                            <h2 class="text-capitalize margin-clear text-center"><span>Register</span></h2>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6 margin-top-30">
+                            <div class="form-contact">
+                                <div class="row">
+                                    <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                        <div class="col-xs-12 col-md-12 col-sm-12">
+                                            <input name="form_type" type="hidden" value="contact">
+                                            <input name="utf8" type="hidden" value="✓">
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Ad, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Soyad, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Email, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Adres, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Phone, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.Password, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+                                            </div>
+                                            <div class="input-group margin-bottom-20">
+                                                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "input-group-addon" })
+                                                @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                            </div>
+                                            <div class="for-pass full-width">
+                                                <input type="submit" class="btn btn-default" value="Hesap Oluştur" />
+                                            </div>
+                                        </div>
+                                        }
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-6 margin-top-30">
+                            <div class="creat-account">
+                                <h4 class="margin-clear">Already have a account?</h4>
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-lg btn-success margin-top-15">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--=================== Footer Container ===================-->
+    </div>
+    <!--=================== Ajax Cart Dialog ===================-->
+    <div class="modal fade paira-cart-popup" id="paira-ajax-cart" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row margin-top-40">
+                        <div class="col-md-7 col-sm-7 col-xs-12 cart-table margin-top-40">
+                            <h3 class="margin-top-0">Shopping Cart</h3>
+                            <div class="cart-table-inner">
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-10.jpeg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-9.jpeg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="cart-menu-buttons text-right">
+                                <a href="#" class="btn btn-success pull-left">Continue Shopping</a>
+                                <a href="#" class="btn btn-success pull-right">Update Cart</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 cart-table margin-top-40">
+                            <div class="margin-bottom-30">
+                                <h3 class="margin-clear margin-bottom-15">Sub Total</h3>
+                                <div class="cart-sub-total">
+                                    <textarea id="note" name="note" class=" margin-bottom-15 form-control" placeholder="Special instruction for seller"></textarea>
+                                    <h1 class="margin-bottom-15 text-center"><span class="money">$510.00</span></h1>
+                                    <input type="submit" id="checkout" class="btn btn-success btn-lg btn-block" name="checkout" value="Proceed To Checkout">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Login Dialog ===================-->
+    <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 paira-margin-top-3">
+                            <div class="currency">
+                                <h3 class="text-capitalize margin-bottom-30">currency</h3>
+                                <ul class="list-inline text-uppercase full-width">
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>USD</span></a></li>
+                                    <li><a href="#"><span>AUD</span></a></li>
+                                    <li><a href="#"><span>GBP</span></a></li>
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>YUN</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-9 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Login</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon1">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon2">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href="reset-password.html" class="forget pull-left margin-top-10 text-underline">Reset Password?</a>
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Login</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Register</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon3">First Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon4">Last Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon5">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon6">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,12 @@
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\BasakWeb.Core.dll.config
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\BasakWeb.Core.dll
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\BasakWeb.Core.pdb
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\EntityFramework.dll
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\EntityFramework.xml
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\obj\Release\BasakWeb.Core.csprojAssemblyReference.cache
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\obj\Release\BasakWeb.Core.csproj.CoreCompileInputs.cache
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\obj\Release\BasakWeb.Core.csproj.CopyComplete
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\obj\Release\BasakWeb.Core.dll
+C:\Users\Sym\source\repos\BasakWeb\BasakWeb.Core\obj\Release\BasakWeb.Core.pdb

@@ -1,0 +1,139 @@
+﻿﻿@model BasakWeb.ViewModels.OrderViewModel
+
+@{
+    ViewBag.Title = "Complete";
+}
+
+<h2>Siparişi Tamamla</h2>
+
+@using (Html.BeginForm("Complete", "Cart", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return checkCheckBoxes();" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ShipCity, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ShipCity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ShipCity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Tamamla" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <h4>Sipariş Özeti</h4>
+                <table class="table">
+                    <tr>
+                        <td>Ürün Adı</td>
+                        <td>Fiyatı</td>
+                    </tr>
+                    @foreach (var item in Model.Cart.CartLines)
+                    {
+                        <tr>
+                            <td>@item.Product.ProductName</td>
+                            <td>@item.Product.UnitPrice TL</td>
+
+                        </tr>
+                    }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <h3>Toplam</h3>
+                        </td>
+                        <td class="text-right">
+                            <h3>
+                                <strong>@Model.Cart.Total TL</strong>
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+
+                    </tr>
+                </table>
+
+
+            </div>
+            <div class="col-lg-6">
+                <textarea style="overflow-y:scroll; max-width: 100%;
+    width: 100%; height:100px">
+asssssssssssssssssssssssssssssssssss s sssssssssssssssssssss ssssssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssssssssssssss ssssssssssssssssssssssssss
+</textarea>
+                @Html.LabelFor(model => model.Sozlesme, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.CheckBoxFor(model => model.Sozlesme)
+            </div>
+        
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Geri Dön", "List")
+</div>
+@section scripts {
+    <script>
+        function checkCheckBoxes() {
+            if ($("#Sozlesme").is(':checked')) {
+                return true;
+            } else {
+                alert("Sözleşmeyi Kabul etmelisiniz!");
+                return false;
+            }
+        }
+    </script>
+}

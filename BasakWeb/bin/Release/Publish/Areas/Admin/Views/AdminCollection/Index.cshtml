@@ -1,0 +1,42 @@
+﻿@model BasakWeb.Areas.Admin.Models.CollectionVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<br>
+<a href='@Url.Action("Create")' class="btn btn-primary">Yeni Oluştur</a>
+<br>
+<br>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.CollectionList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CollectionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+
+            <td>
+                <a href='@Url.Action("Edit", new { id = item.ID })' class="btn btn-info">Düzenle</a>
+                <a href='@Url.Action("Delete", new { id = item.ID })' onclick="return confirm('Eminmisin? Koleksiyondaki resimler de silinecek..');" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+
+</table>

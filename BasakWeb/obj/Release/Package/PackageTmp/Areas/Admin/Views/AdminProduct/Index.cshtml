@@ -1,0 +1,77 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using System.Globalization
+
+@model BasakWeb.Areas.Admin.Models.ProductVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<br>
+<a href='@Url.Action("Create")' class="btn btn-primary">Yeni Oluştur</a>
+<br>
+<br>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPriceOld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDescription)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.Sold)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ProductList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPriceOld)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Sold)
+            </td>
+            <td>
+                <a href='@Url.Action("Edit", new { id = item.ProductId })' class="btn btn-info">Düzenle</a>
+                <a href='@Url.Action("Delete", new { id = item.ProductId })' onclick="return confirm('Eminmisin?');" class="btn btn-danger">Sil</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-30 text-center">
+            @Html.PagedListPager(Model.ProductList, _sayfaNo => Url.Action("Index", "AdminProduct", new { SayfaNo = _sayfaNo }))
+        </div>
+    </div>
+</div>

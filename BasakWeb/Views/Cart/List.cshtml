@@ -1,0 +1,47 @@
+﻿﻿@model BasakWeb.ViewModels.CartListViewModel
+
+
+<h2>Sepetiniz</h2>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <td>Ürün Adı</td>
+            <td>Fiyatı</td>
+
+            <td></td>
+
+        </tr>
+        @foreach (var item in Model.Cart.CartLines)
+        {
+            <tr>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Product.UnitPrice TL</td>
+                <td class="text-right"><a class="btn btn-xs btn-danger" href="@Url.Action("Remove", "Cart", new {productId= @item.Product.ProductId})"><span class="glyphicon glyphicon-remove"></span> sepetten çıkar</a></td>
+            </tr>
+        }
+        <tr>
+
+            <td>
+                <h3>Toplam</h3>
+            </td>
+            <td class="text-right">
+                <h3>
+                    <strong>@Model.Cart.Total TL</strong>
+                </h3>
+            </td>
+        </tr>
+        <tr>
+
+            <td>
+                <a href="@Url.Action("Index", "Product")" class="btn btn-xs btn-default">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Alışverişe devam et
+                </a>
+            </td>
+            <td class="text-right">
+                <a href="@Url.Action("Complete", "Cart")" class="btn btn-xs btn-success">
+                    <span class="glyphicon glyphicon-shopping-play"></span> Ödemeye git
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

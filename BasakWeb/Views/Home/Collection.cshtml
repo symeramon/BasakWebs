@@ -1,0 +1,416 @@
+﻿﻿@using PagedList
+@using PagedList.Mvc
+@using System.Globalization
+@model BasakWeb.Models.ProductVM
+<html>
+<body>
+    <!--=================== Main Body Content Container ===================-->
+    <div class="paira-container pages-container">
+        <!--=================== Header Container ===================-->
+        <!--=================== Main Content Container ===================-->
+        <main class="collection-page">
+            <!--=================== Breadcrumb Section ===================-->
+            <section class="breadcrumb-container paira-margin-bottom-3">
+                <div class="breadcrumb">
+                    <div class="container-fluid padding-fix">
+                        <ul class="list-inline">
+                            <li><a href="#">Anasayfa <i class="fa fa-angle-right"></i></a></li>
+                            <li>Koleksiyon</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!--=================== latest Picture Section ===================-->
+            <section class="latest-picture paira-margin-bottom-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 heading-title">
+                            <h2 class="text-capitalize margin-clear text-center"><span>Koleksiyon</span></h2>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 margin-bottom-40 margin-top-30">
+                                <div class="showing-item text-center">
+                                    <p class="margin-clear">Showing <strong>8 items</strong> 30 items</p>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 padding-clear">
+                                    <div class="short-by">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Short by <i class="fa fa-plus"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 padding-clear">
+                                    <div class="show-category">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Category <i class="fa fa-plus"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-4 padding-clear">
+                                    <div class="views">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn dropdown-toggle pull-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Grid view <i class="fa fa-plus"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="margin-bottom-40 margin-top-20">
+                    <div class="container">
+                        <div class="row">
+                            @foreach (var item in Model.ProductList)
+                            {
+                                <div class="col-sm-4 col-md-4 col-xs-12 margin-bottom-20">
+                                    <div class="product text-center">
+                                        <div class="product-image position-r">
+                                            <a href="#">
+                                                <div class="background-overlay"></div>
+                                                <img src="@item.Picture" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        @{
+                                            if (item.Sold)
+                                            {
+                                                <div class="product-stock-out"><span>Satıldı</span></div>
+                                            }
+
+                                        }
+
+                                        <div class="product-hover">
+                                            <h4 class="margin-clear"><a href='@Url.Action("Index", "Product")'>@item.ProductName</a></h4>
+                                            <div class="text-center prices">
+                                                @{ if (item.UnitPriceOld.ToString() != "0,00")
+                                                    {
+                                                        <h3 class="pull-left margin-right-5 del"><del><span class="money-old@item.ProductId">@item.UnitPriceOld</span></del></h3>
+                                                    }}
+
+                                                <h3 class="pull-left margin-left-5"><span class="money@item.ProductId">@item.UnitPrice TL</span></h3>
+                                            </div>
+                                            <div class="paira-wish-compare-con wish-compare-view-cart">
+                                                @if (!item.Sold)
+                                                {
+                                                <a href="#paira-quick-view" data-picture="@item.Picture" data-unitprice="@item.UnitPrice" data-unitoldprice="@item.UnitPriceOld" data-productname="@item.ProductName" data-productid="@item.ProductId" class="paira-quick-view quick-view  btn btn-default"><i class="fa fa-search-plus"></i></a>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+                    <div class="product-container"></div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-30 text-center">
+                            @Html.PagedListPager(Model.ProductList, _sayfaNo => Url.Action("Collection", "Home", new { SayfaNo = _sayfaNo }))
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!--=================== Footer Container ===================-->
+    </div>
+    <!--=================== Loading Image ===================-->
+    <div class="paira-loading ajax-loading margin-clear text-center">
+        <img src="~/assets/images/AjaxLoader.gif" alt="" class="padding-clear margin-top-10">
+        <p><b>Loading...</b></p>
+    </div>
+    <!--=================== Quick View Dialog ===================-->
+    <div class="modal fade quick-view" id="paira-quick-view" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+
+                    <div class="row margin-bottom-20">
+                        <div class="col-md-5 col-sm-12 col-xs-12 margin-top-40 paira-margin-top-2">
+                            <div class="paira-product single-varients-product">
+                                <div class="position-r pull-left full-width margin-bottom-40">
+                                    <div class="single-product-image paira-quick-single-product-image">
+                                        <img alt="" class="paira-product-image img-responsive">
+                                    </div>
+                                    <div class="single-product-container"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12 margin-top-40 paira-margin-top-2">
+                            <div class="product-detles">
+                                <h1 class="full-width text-capitalize margin-bottom-15 margin-clear"><a href='@Url.Action("Index", "Product")' class="productname"></a></h1>
+                                <div class="full-width pull-left margin-bottom-15">
+                                    <h3 class="margin-right-5 pull-left margin-top-0 margin-bottom-0 del"><del class="margin-clear"><span class="money-old margin-clear">$200.00</span></del></h3>
+                                    <h3 class="margin-left-5 pull-left margin-top-0 margin-bottom-0 money">$80.00</h3>
+                                </div>
+                               
+                                    <button class="btn btn-success btn-lg text-capitalize margin-bottom-20 cartbtn" data-toggle="modal" data-target="#paira-ajax-success-message">Sepete Ekle</button>
+                                
+                                </div>
+                            @*<div class="sicoal-share-widget margin-top-10  full-width pull-left">
+                                    <label class=" pull-left">Share :</label>
+                                    <ul class="social-li list-inline">
+                                        <li><a ><i class="fa fa-facebook font-size-18"></i></a></li>
+                                        <li><a ><i class="fa fa-google-plus font-size-18"></i></a></li>
+                                        <li><a ><i class="fa fa-twitter font-size-18"></i></a></li>
+                                        <li><a ><i class="fa fa-pinterest font-size-18"></i></a></li>
+                                        <li><a><i class="fa fa-linkedin font-size-18"></i></a></li>
+                                    </ul>
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Ajax Success Message ===================-->
+    <div class="modal fade ajax-success-message" id="paira-ajax-success-message" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row paira-margin-top-2">
+                        <div class="col-md-4 pull-right padding-left-0 col-xs-12 col-sm-4 paira-success-message-img"><img src="~/assets/images/product/product-10.jpeg" alt="" class="img-responsive"></div>
+                        <div class="col-md-8 col-xs-12 col-sm-8 pull-left">
+                            <h4 class="margin-top-0 paira-success-message-title"><strong class="paira-success-message-details letter-spacing-2"><i class="fa fa-check-circle"></i> Sepetinize eklendi.</strong></h4>
+                            <a href="@Url.Action("Collection", "Home")" class="btn btn-success btn-lg btn-block margin-top-30">Alışverişe devam et</a>
+                            <a href="@Url.Action("List", "Cart")" class="btn btn-default btn-lg btn-block margin-top-15 paira-success-message-link">Sepete git</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Ajax Cart Dialog ===================-->
+    <div class="modal fade paira-cart-popup" id="paira-ajax-cart" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row margin-top-40">
+                        <div class="col-md-7 col-sm-7 col-xs-12 cart-table margin-top-40">
+                            <h3 class="margin-top-0">Shopping Cart</h3>
+                            <div class="cart-table-inner">
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-10.jpeg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                                <div class="column full-width overflow">
+                                    <div class="row-1">
+                                        <a href="#" class="pull-left"><img class="" src="~/assets/images/product/product-9.jpeg" alt=""></a>
+                                    </div>
+                                    <div class="row-2">
+                                        <a href='@Url.Action("Index", "Product")' class="cart-menu-line-title">Butterfly eyes women</a>
+                                        <div class="quentity margin-bottom-15 pull-left">
+                                            <div class="product_quantity_group product-quantity-fix">
+                                                <input type="text" class="form-control text-center pull-left font-size-16 margin-left-15" value="2">
+                                                <div class="up-down text-center pull-left overflow">
+                                                    <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
+                                                    <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="btn-group full-width dropdown-category margin-bottom-15">
+                                            <button type="button" class="btn btn-success dropdown-toggle text-uppercase" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1024 x 1024 px<i class="fa fa-angle-down dropdown-icon"></i></button>
+                                            <ul class="dropdown-menu text-uppercase">
+                                                <li><a href="#">Bed Room</a></li>
+                                                <li><a href="#">Showcase</a></li>
+                                                <li><a href="#">Dining Room</a></li>
+                                                <li><a href="#">Living Room</a></li>
+                                                <li><a href="#">Drowing Room</a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="margin-clear cart-product-price">$180</h2>
+                                    </div>
+                                    <div class="row-3"><p><a href="#" class="remove margin-top-20"><i class="fa fa-trash fa-2x"></i></a></p></div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="cart-menu-buttons text-right">
+                                <a href="#" class="btn btn-success pull-left">Continue Shopping</a>
+                                <a href="#" class="btn btn-success pull-right">Update Cart</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 col-xs-12 cart-table margin-top-40">
+                            <div class="margin-bottom-30">
+                                <h3 class="margin-clear margin-bottom-15">Sub Total</h3>
+                                <div class="cart-sub-total">
+                                    <textarea id="note" name="note" class=" margin-bottom-15 form-control" placeholder="Special instruction for seller"></textarea>
+                                    <h1 class="margin-bottom-15 text-center"><span class="money">$510.00</span></h1>
+                                    <input type="submit" id="checkout" class="btn btn-success btn-lg btn-block" name="checkout" value="Proceed To Checkout">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Login Dialog ===================-->
+    <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 paira-margin-top-3">
+                            <div class="currency">
+                                <h3 class="text-capitalize margin-bottom-30">currency</h3>
+                                <ul class="list-inline text-uppercase full-width">
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>USD</span></a></li>
+                                    <li><a href="#"><span>AUD</span></a></li>
+                                    <li><a href="#"><span>GBP</span></a></li>
+                                    <li><a href="#"><span>CAD</span></a></li>
+                                    <li><a href="#"><span>YUN</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-9 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Login</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon1">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon2">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href="reset-password.html" class="forget pull-left margin-top-10 text-underline">Reset Password?</a>
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Login</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-12 paira-margin-top-3">
+                            <h3 class="text-capitalize margin-bottom-30">Register</h3>
+                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                <div>
+                                    <input name="form_type" type="hidden" value="contact">
+                                    <input name="utf8" type="hidden" value="✓">
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon3">First Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon4">Last Name</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon5">Email</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                    <div class="input-group margin-bottom-20">
+                                        <span class="input-group-addon" id="basic-addon6">Password</span>
+                                        <input type="text" class="form-control" aria-describedby="basic-addon3">
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="margin-bottom-20 for-pass full-width text-right">
+                                <a href='@Url.Action("Login", "Account")' class="btn btn-success btn-lg">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--=================== Menu Dialog ===================-->
+
+</body>
+</html>
+@section scripts {
+    <script>
+
+    $(document).on("click", ".paira-quick-view", function () {
+        $('#paira-ajax-success-message').on('hidden.bs.modal', function (e) {
+  window.location = "/Home/Collection/"
+})
+        var picture = $(this).data('picture');
+        var prid = $(this).data('productid');
+        var price = $(this).data('unitprice');
+        var priceold = $(this).data('unitoldprice');
+        var prname = $(this).data('productname');
+        $(".paira-product-image").attr("src", picture);
+        $(".money").text(price+"TL");
+         priceold != "0,00" ? $(".money-old").text(priceold):$(".money-old").text("");
+        $(".productname").text(prname);
+        // As pointed out in comments,
+        // it is unnecessary to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+        $('.cartbtn').click(function () {
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: "POST",
+                data: { productid: prid },
+                success: function () {
+
+                }
+            });
+        });
+    });
+
+    </script>
+
+}

@@ -1,0 +1,68 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model BasakWeb.Areas.Admin.Models.OrderVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Siparişler</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kullanici_Id)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.OrderList)
+    {
+      
+        <tr style="@((DateTime.Now - item.OrderDate ).TotalDays > 7 ? Html.Raw("background-color:pink") : Html.Raw("background-color:white"))">
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+
+            <td>
+                <a href='@Url.Action("Details", new {  OrderID = item.OrderId  })' class="btn btn-info">Detay</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 margin-top-30 text-center">
+            @Html.PagedListPager(Model.OrderList, _sayfaNo => Url.Action("Index", "AdminOrder", new { SayfaNo = _sayfaNo }))
+        </div>
+    </div>
+</div>
